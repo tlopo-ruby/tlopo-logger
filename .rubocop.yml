@@ -1,0 +1,41 @@
+AllCops:
+  DisplayCopNames: true
+  TargetRubyVersion: 2.6 
+  NewCops: enable
+  SuggestExtensions: false
+
+MethodLength:
+  Enabled: false
+ClassLength:
+  Enabled: false
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: false
+Metrics/CyclomaticComplexity:
+  Max: 15
+Metrics/PerceivedComplexity:
+  Max: 15
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Naming/AccessorMethodName:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/SpecialGlobalVars:
+  Enabled: false
+Style/ConditionalAssignment:
+  Enabled: false
+Style/ClassVars:
+  Enabled: false
+Layout/FirstHashElementIndentation:
+  Enabled: false
+Layout/LineLength:
+  Max: 120
+Lint/OrAssignmentToConstant:
+  Enabled: false
+Lint/AmbiguousRegexpLiteral:
+  Enabled: false
+Gemspec/RequireMFA:
+  Enabled: false
