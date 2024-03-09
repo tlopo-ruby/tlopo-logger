@@ -25,6 +25,42 @@ LOGGER.add_sensitive 'secret', pass
 LOGGER.info "My password is #{pass}"
 # I, [2024-03-08T21:02:00.179194 #39840]  INFO -- : My password is [REDACTED:secret]
 ```
+
+## Tips
+
+### Change log device
+The logger is configured to log to stderr by default, but we can easily change this behavior
+```ruby
+require 'tlopo/logger'
+
+# we can use a file descriptor
+LOGGER.reopen $stdout
+
+# or a file path
+LOGGER.reopen '/tmp/log'
+
+LOGGER.info 'Hello World!'
+```
+
+### Add progname
+The progname by default is nil, but perhaps you want to set it when logging from an instance of a class
+```ruby
+require 'tlopo/logger'
+
+class Foo
+  def initialize
+    @logger = LOGGER.class.new $stderr, progname: self.class
+  end
+
+  def greetings
+    @logger.info 'Hello World!'     
+  end
+end
+
+Foo.new.greetings
+```
+
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
