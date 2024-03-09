@@ -10,8 +10,8 @@ module Tlopo
   class CustomLogger < DefaultLogger
     @@sensitive = {}
 
-    def initialize(file)
-      super(file)
+    def initialize(dev, **args)
+      super
       if ENV['LOG_LEVEL']
         @level = Object.const_get "Logger::#{ENV['LOG_LEVEL'].upcase}"
       else
